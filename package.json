@@ -1,0 +1,15 @@
+{
+  "name": "my-webpack",
+  "version": "1.0.0",
+  "description": "webpack搭建",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "js"
+  ],
+  "author": "鹿鸣",
+  "license": "ISC"
+}
