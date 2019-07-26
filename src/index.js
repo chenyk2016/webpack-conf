@@ -6,4 +6,4 @@ let MyOBj = {
   }
 };
 
-MyOBj();
+MyOBj.log();

@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-
 module.exports = {
   entry: './src/index.js',
   devServer: {
@@ -36,6 +35,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
        template: './public/index.html',
+       title: '123111',
     })
   ],
   output: {
