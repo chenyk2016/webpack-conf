@@ -30,6 +30,7 @@ module.exports = {
           // }
         ]
       },
+      // 不需要指定 url-loader ,css-loader会自动引用
       {
         test: /\.css$/,
         use: [
@@ -41,6 +42,18 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          alias: {
+            // 重写url
+            "../fonts/bootstrap": "bootstrap-sass/assets/fonts/bootstrap",
+            '~': 'src',
+          }
+        }
       },
     ]
   },

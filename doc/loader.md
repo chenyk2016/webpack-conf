@@ -2,14 +2,13 @@
 
 ## 1. css引入
 
+1. style-loader 将css注入dom
+2. css-loader 解释(interpret) @import 和 url() 并引用合适的loader解析。
+
 安装:
 ```
 npm install --save-dev style-loader css-loader
 ```
-
-style-loade
-
-将css注入dom
 
 配置:
 ```js
@@ -49,14 +48,12 @@ style-loade
 
 	(作用相当于file-loader,当文件小于限制时，可以返回一个 DataURL。)
 	npm install --save-dev url-loader
-		{
-			test: /\.(png|jpg|gif)$/,
-			use: [
-			  {
-			    loader: 'url-loader',
-			    options: {
-			      limit: 8192
-			    }
-			  }
-			]
-		}
+	```
+  {
+    test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+    loader: 'url-loader',
+    options: {
+      limit: 10000
+    }
+  },
+  ```
