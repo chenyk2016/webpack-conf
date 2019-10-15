@@ -35,7 +35,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
        template: './public/index.html',
-       title: '123111',
+       title: '动态标题',
     })
   ],
   output: {
