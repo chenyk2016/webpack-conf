@@ -44,7 +44,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // modules: true, // 模块化的css才需要这个。
-              importLoaders: 1, // 使用 css-loader 之前有几个loader， 默认0
+              importLoaders: 2, // 使用 css-loader 之前有几个loader， 默认0
             }
           },
           {
@@ -58,10 +58,35 @@ module.exports = {
         ]
       },
       {
+        test: /\.less$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              // modules: true, // 模块化的css才需要这个。
+              importLoaders: 2, // 使用 css-loader 之前有几个loader， 默认0
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require('autoprefixer'), // 配置在.browserslistrc 文件中，以便和js polifill公用
+              ]
+            }
+          },
+          {
+            loader: 'less-loader', // compiles Less to CSS
+          }
+        ]
+      },
+      {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
+          name: '[name].[hash:7].[ext]' // path是原路径，name是原文件名，hash:7是七位的哈希值，ext是文件后缀
         }
       },
     ]

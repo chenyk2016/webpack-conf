@@ -1,4 +1,4 @@
-import './index.css';
+import './index.less';
 
 let MyOBj = {
   log () {
