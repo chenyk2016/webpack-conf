@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -39,7 +40,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here
+              // by default it uses publicPath in webpackOptions.output
+              // publicPath: '../',
+              // only enable hot in development
+              hmr: process.env.NODE_ENV === 'development',
+              // if hmr does not work, this is a forceful method.
+              reloadAll: true,
+            },
+          },
           {
             loader: 'css-loader',
             options: {
@@ -60,7 +72,18 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          { loader: 'style-loader' },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here
+              // by default it uses publicPath in webpackOptions.output
+              // publicPath: '../',
+              // only enable hot in development
+              hmr: process.env.NODE_ENV === 'development',
+              // if hmr does not work, this is a forceful method.
+              reloadAll: true,
+            },
+          },
           {
             loader: 'css-loader',
             options: {
@@ -93,11 +116,18 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      // 用 contenthash 设置长期缓存
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].css',
+    }),
     new HtmlWebpackPlugin({
        template: './public/index.html',
        title: '动态标题',
        inject: 'body',
-    })
+    }),
   ],
   output: {
     filename: 'bundle.js',
