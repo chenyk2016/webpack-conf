@@ -1,4 +1,5 @@
-console.log(111);
+import './index.css';
+// import url from './index.css';
 
 let MyOBj = {
   log () {

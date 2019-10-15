@@ -5,7 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    open: false,
   },
   module: {
     rules: [
@@ -19,16 +20,28 @@ module.exports = {
               presets: ['@babel/preset-env']
             }
           },
+          // {
+          //   loader: "eslint-loader",
+          //   options: {
+          //     // eslint options (if necessary)
+          //     // community formatter
+          //     formatter: require("eslint-friendly-formatter"),
+          //   }
+          // }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
           {
-            loader: "eslint-loader",
+            loader: 'css-loader',
             options: {
-              // eslint options (if necessary)
-              // community formatter
-              formatter: require("eslint-friendly-formatter"),
+              // modules: true
             }
           }
         ]
-      }
+      },
     ]
   },
   plugins: [
@@ -36,6 +49,7 @@ module.exports = {
     new HtmlWebpackPlugin({
        template: './public/index.html',
        title: '动态标题',
+       inject: 'body',
     })
   ],
   output: {

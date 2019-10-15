@@ -21,3 +21,9 @@ server.js
     at Object.module.exports (/Users/chen/Desktop/demo/my-webpack/node_modules/eslint-
 loader/index.js:199:26)
 ```
+
+## 常用babel
+
+## 常用plugin
+
+## 打包优化
