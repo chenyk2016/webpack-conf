@@ -1,4 +1,4 @@
-#hello{
-  color: red;
-  background-image: url('./assets/img/img-9.png');
+#test{
+  color: blue;
+  background: url('../img/img-big.png');
 }

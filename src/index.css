@@ -1,4 +1,6 @@
+@import "~assets/css/index.css";
+
 #hello{
   color: red;
-  background-image: url('./assets/img/img-9.png');
+  background: url('~assets/img/img-9.png');
 }

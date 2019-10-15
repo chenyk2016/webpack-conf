@@ -5,6 +5,11 @@
 1. style-loader 将css注入dom
 2. css-loader 解释(interpret) @import 和 url() 并引用合适的loader解析。
 
+>小知识:
+是在引用路径的字符串最前面添加上 ~ 符号，如 @import "~@/style/theme";
+Webpack 会将以 ~ 符号作为前缀的路径视作依赖模块而去解析，这样 alias 配置就能生效了。
+image 等资源文件都可以这样实现。
+
 安装:
 ```
 npm install --save-dev style-loader css-loader

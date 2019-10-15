@@ -1,5 +1,4 @@
 import './index.css';
-// import url from './index.css';
 
 let MyOBj = {
   log () {

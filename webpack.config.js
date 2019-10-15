@@ -8,6 +8,11 @@ module.exports = {
     contentBase: './dist',
     open: false,
   },
+  resolve: {
+    alias: {
+      'assets': path.resolve(__dirname, 'src/assets'),
+    }
+  },
   module: {
     rules: [
       {
@@ -38,7 +43,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              // modules: true
+              // modules: true, // 模块化的css才需要这个。
             }
           }
         ]
@@ -48,11 +53,6 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          alias: {
-            // 重写url
-            "../fonts/bootstrap": "bootstrap-sass/assets/fonts/bootstrap",
-            '~': 'src',
-          }
         }
       },
     ]
