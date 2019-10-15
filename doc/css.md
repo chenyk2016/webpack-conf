@@ -63,15 +63,6 @@ autoprefixer 添加供应商前缀
 postcss-pxtorem 将px转换成rem。
 postcss-sprites 生成图像精灵。
 
-## 3. html资源引入
+### 5. mini-css-extract-plugin
 
-	npm i -D html-loader
-		{
-		  test: /\.(html)$/,
-		  use: {
-		    loader: 'html-loader',
-		    options: {
-		      attrs: [':data-src']
-		    }
-		  }
-		}
+mini-css-extract-plugin
