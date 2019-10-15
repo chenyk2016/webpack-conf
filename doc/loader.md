@@ -1,9 +1,9 @@
 # loader
 
-## 1. css引入
+## css引入
 
-1. style-loader 将css注入dom
-2. css-loader 解释(interpret) @import 和 url() 并引用合适的loader解析。
+### 1. style-loader 将css注入dom
+### 2. css-loader 解释(interpret) @import 和 url() 并引用合适的loader解析。
 
 >小知识:
 是在引用路径的字符串最前面添加上 ~ 符号，如 @import "~@/style/theme";
@@ -31,10 +31,36 @@ npm install --save-dev style-loader css-loader
 }
 ```
 
-## 2. css资源引入
+### 3. url-loader
 
-    	npm install --save-dev file-loader
+  解析css中的资源文件，并提供base64转换功能。
 
+	(作用相当于file-loader,当文件小于限制时，可以返回一个 DataURL。)
+	npm install --save-dev url-loader
+	```
+  {
+    test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+    loader: 'url-loader',
+    options: {
+      limit: 10000
+    }
+  },
+  ```
+
+### 4. postcss-loader
+
+postcss-loader
+
+```
+"last 1 version",
+"> 1%",
+"maintained node versions",
+"not dead"
+```
+
+**plugins:**
+postcss-pxtorem 将px转换成rem。
+postcss-sprites 生成图像精灵。
 
 ## 3. html资源引入
 
@@ -48,17 +74,3 @@ npm install --save-dev style-loader css-loader
 		    }
 		  }
 		}
-
-## 4. url-loader
-
-	(作用相当于file-loader,当文件小于限制时，可以返回一个 DataURL。)
-	npm install --save-dev url-loader
-	```
-  {
-    test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-    loader: 'url-loader',
-    options: {
-      limit: 10000
-    }
-  },
-  ```

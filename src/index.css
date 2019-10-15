@@ -3,4 +3,7 @@
 #hello{
   color: red;
   background: url('~assets/img/img-9.png');
+  display: flex;
+  border-radius: 4px;
+  -webkit-box-orient: vertical;
 }

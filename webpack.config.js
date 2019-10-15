@@ -44,6 +44,15 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // modules: true, // 模块化的css才需要这个。
+              importLoaders: 1, // 使用 css-loader 之前有几个loader， 默认0
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require('autoprefixer'), // 配置在.browserslistrc 文件中，以便和js polifill公用
+              ]
             }
           }
         ]
