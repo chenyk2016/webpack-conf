@@ -67,3 +67,7 @@ postcss-sprites 生成图像精灵。
 ### 5. mini-css-extract-plugin
 
 mini-css-extract-plugin
+
+## 提示
+
+css循环引用，webpack会自动优化。
