@@ -61,6 +61,7 @@ postcss-loader
 **plugins:**
 autoprefixer 添加供应商前缀
 postcss-pxtorem 将px转换成rem。
+
 postcss-sprites 生成图像精灵。
 
 ### 5. mini-css-extract-plugin

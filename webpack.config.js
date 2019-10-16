@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const sprites = require('postcss-sprites');
 
 module.exports = {
   entry: './src/index.js',
@@ -36,7 +37,6 @@ module.exports = {
           // }
         ]
       },
-      // 不需要指定 url-loader ,css-loader会自动引用
       {
         test: /\.css$/,
         use: [
@@ -64,6 +64,7 @@ module.exports = {
             options: {
               plugins: [
                 require('autoprefixer'), // 配置在.browserslistrc 文件中，以便和js polifill公用
+                sprites(),
               ]
             }
           }
@@ -96,6 +97,7 @@ module.exports = {
             options: {
               plugins: [
                 require('autoprefixer'), // 配置在.browserslistrc 文件中，以便和js polifill公用
+                sprites(),
               ]
             }
           },
@@ -108,7 +110,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: 0,
           name: '[name].[hash:7].[ext]' // path是原路径，name是原文件名，hash:7是七位的哈希值，ext是文件后缀
         }
       },
