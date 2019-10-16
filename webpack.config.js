@@ -90,7 +90,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // modules: true, // 模块化的css才需要这个。
-              importLoaders: 2, // 使用 css-loader 之前有几个loader， 默认0
+              // importLoaders: 2, // 使用 css-loader 之前有几个loader， 默认0
             }
           },
           {
@@ -104,6 +104,23 @@ module.exports = {
           },
           {
             loader: 'less-loader', // compiles Less to CSS
+          },
+          {
+            loader: 'style-resources-loader',
+            options: {
+              patterns: [
+                path.resolve(__dirname, './src/assets/css/var.less'),
+                path.resolve(__dirname, './src/assets/css/mixin.less'),
+              ],
+              // injector: (source, resources) => {
+              //   const combineAll = type => resources
+              //     .filter(({ file }) => file.includes(type))
+              //     .map(({ content }) => content)
+              //     .join('');
+              //
+              //   return combineAll('variables') + combineAll('mixins') + source;
+              // }
+            }
           }
         ]
       },
