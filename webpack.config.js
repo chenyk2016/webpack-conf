@@ -57,7 +57,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // modules: true, // 模块化的css才需要这个。
-              importLoaders: 2, // 使用 css-loader 之前有几个loader， 默认0
+              // importLoaders: 2, // 使用 css-loader 之前有几个loader， 默认0
             }
           },
           {

@@ -105,7 +105,7 @@ postcss-loader
 
   mini-css-extract-plugin
 
-将css提取到单独的问价中。
+将css提取到单独的文件中。
 
 ### 6. less全局变量
 
